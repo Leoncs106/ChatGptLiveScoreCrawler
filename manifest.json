@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+  "name": "Bet365 Live Score Crawler 2.0",
+  "version": "1.0",
+  "description": "A Chrome extension to crawl and display live score data from Bet365",
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+  "permissions": [
+    "activeTab",
+    "webRequest",
+    "webRequestBlocking",
+    "tabs",
+    "storage",
+    "<all_urls>"
+  ],
+  "content_scripts": [{
+    "matches": ["*://www.bet365.com/*"],
+    "js": ["content.js"]
+  }],
+  "browser_action": {
+    "default_title": "Bet365 Live Score Crawler 2.0",
+    "default_popup": "popup.html"
+  }
+}
